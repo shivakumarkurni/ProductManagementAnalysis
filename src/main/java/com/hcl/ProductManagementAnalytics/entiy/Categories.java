@@ -52,4 +52,12 @@ public class Categories {
 		this.products = products;
 	}
 
+	public Set<CategoryCount> getCategoryCount() {
+		return categoryCount;
+	}
+
+	public void setCategoryCount(Set<CategoryCount> categoryCount) {
+		this.categoryCount = categoryCount;
+	}
+
 }

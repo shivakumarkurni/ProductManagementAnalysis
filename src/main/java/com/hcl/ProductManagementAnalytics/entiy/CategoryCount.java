@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.Table;
 
 @Entity
@@ -16,6 +17,7 @@ public class CategoryCount {
 	private int categoryCount;
 	private String categoryInterest;
 	private int userId;
+	
 
 	public int getId() {
 		return id;
