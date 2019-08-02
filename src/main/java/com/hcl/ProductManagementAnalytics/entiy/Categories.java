@@ -19,13 +19,14 @@ public class Categories {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int categoryId;
 	private String categoryName;
+	
+	
 	@OneToMany(cascade = CascadeType.ALL)
-
 	@JoinColumn(name = "categoryId")
 	Set<Product> products;
 
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "categoryId")
+	
 	Set<CategoryCount> categoryCount;
 
 	public int getCategoryId() {

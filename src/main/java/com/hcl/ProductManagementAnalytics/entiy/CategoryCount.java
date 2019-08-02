@@ -17,7 +17,7 @@ public class CategoryCount {
 	private int categoryCount;
 	private String categoryInterest;
 	private int userId;
-	
+	private int categoryId;
 
 	public int getId() {
 		return id;
@@ -49,6 +49,14 @@ public class CategoryCount {
 
 	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+
+	public int getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
 	}
 
 }

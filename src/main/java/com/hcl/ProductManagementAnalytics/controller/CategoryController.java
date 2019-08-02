@@ -29,4 +29,10 @@ public class CategoryController {
 		
 		return new ResponseEntity<>(categoryService.getCategoryById(categoryId),HttpStatus.OK);
 	}
+	
+	@GetMapping("/analytics/category/{categoryId}")
+	public ResponseEntity<?> getCategoryInterests(@PathVariable int categoryId){
+		
+		return new ResponseEntity<>(categoryService.getAnalyticsByCategory(categoryId),HttpStatus.OK);
+	}
 }
