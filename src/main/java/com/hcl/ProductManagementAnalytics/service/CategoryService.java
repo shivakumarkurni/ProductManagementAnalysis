@@ -25,7 +25,7 @@ public class CategoryService {
 	}
 
 	public Categories getCategoryById(int categoryId) {
-		int users = 2;
+		int users = 1;
 
 		Categories categories = categoryRepository.findById(categoryId).get();
 
