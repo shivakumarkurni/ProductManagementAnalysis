@@ -27,27 +27,36 @@ public class ProductService {
 
 	public Product getProductById(int productId) {
 
+		int userId = 1;
+
 		Product product = productRepository.findById(productId).get();
-		
 
-		ProductCount productCount = new ProductCount();
-		productCount.setProdCount(1);
-		productCount.setProdId(product.getProductId());
-		productCount.setProdInterested("interested");
-		productCount.setUserId(2);
+		ProductCount productCount = productCountRepository.getProductCountByProdIdAndUserId(product.getProductId(),
+				userId);
 
-		productCountRepository.save(productCount);
+		if (productCount != null) {
+			productCount.setProdCount(productCount.getProdCount() + 1);
+			productCountRepository.save(productCount);
+
+		} else {
+
+			ProductCount productCount1 = new ProductCount();
+			productCount1.setProdCount(1);
+			productCount1.setProdId(product.getProductId());
+			productCount1.setProdInterested("interested");
+			productCount1.setUserId(1);
+
+			productCountRepository.save(productCount1);
+		}
 
 		return product;
 
 	}
-	
-	public List<?> getAnalyticsProdInterested(int prodId){
-		
+
+	public List<?> getAnalyticsProdInterested(int prodId) {
+
 		return productCountRepository.getProductCountByProdId(prodId);
-		
-		
-		
+
 	}
 
 }

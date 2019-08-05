@@ -29,24 +29,17 @@ public class CategoryService {
 
 		Categories categories = categoryRepository.findById(categoryId).get();
 
-		CategoryCount categoryCount = categoryCountRepository.getCategoryCountByCategoryIdAndUserId(categories.getCategoryId(),users);
+		CategoryCount categoryCount = categoryCountRepository
+				.getCategoryCountByCategoryIdAndUserId(categories.getCategoryId(), users);
 
 		if (categoryCount != null) {
 
-			if ((categoryCount.getCategoryId() == categoryId && categoryCount.getUserId() == users) == true) {
+			if (categoryCount.getCategoryId() == categoryId) {
 				categoryCount.setCategoryCount(categoryCount.getCategoryCount() + 1);
 				categoryCountRepository.save(categoryCount);
 
 			}
-			else {
-				CategoryCount categoryCount1 = new CategoryCount();
-				categoryCount1.setCategoryCount(1);
-				categoryCount1.setCategoryInterest("interested");
-				categoryCount1.setUserId(2);
-				categoryCount1.setCategoryId(categories.getCategoryId());
 
-				categoryCountRepository.save(categoryCount1);
-			}
 		} else {
 
 			CategoryCount categoryCount1 = new CategoryCount();
